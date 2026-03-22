@@ -1,7 +1,475 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam D. Schneider, PhD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: #e8e8e8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .cv {
+    display: flex;
+    width: 100%;
+    max-width: 1050px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    background: white;
+  }
+
+  /* ===== LEFT SIDEBAR ===== */
+  .sidebar {
+    width: 285px;
+    flex-shrink: 0;
+    background: #2b3a4a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-top {
+    background: #1e2d3a;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4ecdc4, #2b8a84);
+    margin: 0 auto 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    border: 3px solid rgba(255,255,255,0.12);
+  }
+
+  .sidebar-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+  }
+
+  .sidebar-role {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #4ecdc4;
+  }
+
+  .sidebar-body { padding: 1.75rem 2rem; flex: 1; }
+
+  .s-section { margin-bottom: 2rem; }
+
+  .s-section-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #4ecdc4;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* Contact */
+  .contact-list { list-style: none; }
+  .contact-list li {
+    font-size: 0.77rem;
+    color: #c8d4dc;
+    padding: 0.28rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    line-height: 1.4;
+  }
+  .contact-list li a { color: #c8d4dc; text-decoration: none; }
+  .contact-list li a:hover { color: #4ecdc4; }
+  .c-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #4ecdc4;
+    flex-shrink: 0;
+    margin-top: 0.42rem;
+  }
+
+  /* Skill bars */
+  .skill-item { margin-bottom: 0.7rem; }
+  .skill-label { font-size: 0.74rem; color: #c8d4dc; margin-bottom: 0.28rem; }
+  .skill-bar-bg { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+  .skill-bar-fill { height: 100%; background: linear-gradient(to right, #4ecdc4, #7eddd8); border-radius: 2px; }
+
+  /* Tags */
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.38rem; }
+  .s-tag {
+    font-size: 0.66rem;
+    padding: 0.22rem 0.58rem;
+    border-radius: 3px;
+    background: rgba(78,205,196,0.13);
+    color: #7eddd8;
+    border: 1px solid rgba(78,205,196,0.22);
+    font-weight: 600;
+  }
+
+  /* Education */
+  .edu-item { margin-bottom: 1rem; }
+  .edu-degree { font-family: 'Raleway', sans-serif; font-size: 0.8rem; font-weight: 700; color: #fff; line-height: 1.3; }
+  .edu-school { font-size: 0.72rem; color: #4ecdc4; margin: 0.12rem 0; }
+  .edu-year { font-size: 0.67rem; color: rgba(255,255,255,0.38); }
+
+  /* Awards sidebar list */
+  .award-list { list-style: none; }
+  .award-list li {
+    font-size: 0.76rem;
+    color: #c8d4dc;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    line-height: 1.4;
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+  .award-list li:last-child { border-bottom: none; }
+  .aw-year { font-size: 0.65rem; color: #4ecdc4; font-weight: 700; white-space: nowrap; }
+
+  /* ===== MAIN ===== */
+  .main { flex: 1; background: #fff; padding: 3rem 2.5rem; }
+
+  .main-header {
+    margin-bottom: 2.25rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .main-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: #1e2d3a;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+  }
+  .main-name span { color: #4ecdc4; }
+
+  .main-role {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 0.9rem;
+  }
+
+  .main-bio {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 510px;
+  }
+
+  /* Sections */
+  .m-section { margin-bottom: 2.1rem; }
+
+  .m-section-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.63rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #1e2d3a;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .m-section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, #4ecdc4, #e8f8f7);
+  }
+
+  /* Timeline */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .exp-date-col { text-align: right; padding-top: 0.18rem; }
+  .exp-date-range {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #4ecdc4;
+    line-height: 1.4;
+    display: block;
+  }
+  .exp-duration { font-size: 0.63rem; color: #bbb; display: block; margin-top: 0.1rem; }
+
+  .exp-content-col {
+    padding-left: 1.1rem;
+    border-left: 1px solid #e8e8e8;
+    position: relative;
+  }
+  .exp-content-col::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0.4rem;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: #4ecdc4;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #4ecdc4;
+  }
+
+  .exp-role-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1e2d3a;
+    margin-bottom: 0.1rem;
+  }
+  .exp-company { font-size: 0.74rem; color: #4ecdc4; font-weight: 600; margin-bottom: 0.45rem; }
+  .exp-desc { font-size: 0.78rem; color: #777; line-height: 1.65; font-weight: 300; }
+  .exp-desc li { margin-left: 1rem; margin-bottom: 0.18rem; }
+
+  .exp-chips { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-top: 0.5rem; }
+  .exp-chip {
+    font-size: 0.62rem;
+    padding: 0.13rem 0.48rem;
+    background: #f0faf9;
+    color: #2b8a84;
+    border-radius: 3px;
+    font-weight: 600;
+    border: 1px solid #d0efed;
+  }
+
+  /* Publications */
+  .pub-item {
+    padding: 0.8rem 1rem;
+    border-left: 3px solid #4ecdc4;
+    background: #f9fefe;
+    margin-bottom: 0.7rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .pub-title-text { font-size: 0.79rem; color: #333; line-height: 1.55; margin-bottom: 0.22rem; }
+  .pub-journal { font-size: 0.68rem; color: #4ecdc4; font-weight: 600; letter-spacing: 0.05em; }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .cv { box-shadow: none; }
+  }
+  @media (max-width: 720px) {
+    body { padding: 0; }
+    .cv { flex-direction: column; }
+    .sidebar { width: 100%; }
+    .exp-item { grid-template-columns: 1fr; }
+    .exp-date-col { text-align: left; margin-bottom: 0.2rem; }
+    .exp-content-col { padding-left: 0; border-left: none; }
+    .exp-content-col::before { display: none; }
+  }
+</style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<div class="cv">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="avatar">AS</div>
+      <div class="sidebar-name">Adam D.<br>Schneider</div>
+      <div class="sidebar-role">PhD · ML Research Scientist</div>
+    </div>
+
+    <div class="sidebar-body">
+
+      <div class="s-section">
+        <div class="s-section-title">Contact</div>
+        <ul class="contact-list">
+          <li><span class="c-dot"></span><a href="mailto:adam.schneider42@gmail.com">adam.schneider42@gmail.com</a></li>
+          <li><span class="c-dot"></span><a href="tel:6043084423">(604) 308-4423</a></li>
+          <li><span class="c-dot"></span>Vancouver, Canada</li>
+        </ul>
+      </div>
+
+      <div class="s-section">
+        <div class="s-section-title">ML &amp; Research Skills</div>
+        <div class="skill-item"><div class="skill-label">Deep Learning</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+        <div class="skill-item"><div class="skill-label">Computer Vision / CNNs</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:93%"></div></div></div>
+        <div class="skill-item"><div class="skill-label">Contrastive Learning / Re-ID</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-label">Generative Models (GANs)</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-label">Information Theory</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><div class="skill-label">Computational Modeling</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div></div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-section-title">Tools &amp; Languages</div>
+        <div class="tag-list">
+          <span class="s-tag">Python</span>
+          <span class="s-tag">PyTorch</span>
+          <span class="s-tag">TensorFlow</span>
+          <span class="s-tag">Keras</span>
+          <span class="s-tag">AWS</span>
+          <span class="s-tag">Kubernetes</span>
+          <span class="s-tag">Git</span>
+          <span class="s-tag">Linux</span>
+          <span class="s-tag">MATLAB</span>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-section-title">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">PhD · Neurophysics</div>
+          <div class="edu-school">McGill University</div>
+          <div class="edu-year">2008 – 2016</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">MSc · Physics</div>
+          <div class="edu-school">McGill University</div>
+          <div class="edu-year">2006 – 2008</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">BSc · Mathematical Physics<br><span style="font-weight:400;font-size:0.73rem;color:rgba(255,255,255,0.5)">Honors First Class</span></div>
+          <div class="edu-school">Simon Fraser University</div>
+          <div class="edu-year">2000 – 2006</div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-section-title">Selected Awards</div>
+        <ul class="award-list">
+          <li><span class="aw-year">2009–11</span>FQRNT Research Grant ($43,333)</li>
+          <li><span class="aw-year">2009–11</span>CIHR Systems Biology Fellowship ($40,000)</li>
+          <li><span class="aw-year">2008–09</span>McGill President's Award</li>
+          <li><span class="aw-year">2005</span>NSERC Undergraduate Research Award</li>
+          <li><span class="aw-year">2002–05</span>SFU Honor Roll</li>
+        </ul>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="main-header">
+      <div class="main-name">Adam D. <span>Schneider</span></div>
+      <div class="main-role">ML Research Scientist &nbsp;·&nbsp; PhD Neurophysics</div>
+      <p class="main-bio">Machine learning research scientist with a PhD in computational neurophysics and 7+ years shipping production computer vision systems at a leading space technology company. I bring rigorous scientific thinking to applied deep learning — from satellite-based ship detection to deepfake forensics.</p>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="m-section">
+      <div class="m-section-title">Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-date-col">
+          <span class="exp-date-range">2018<br>Present</span>
+        </div>
+        <div class="exp-content-col">
+          <div class="exp-role-title">Sr. Member of Technical Staff</div>
+          <div class="exp-company">MDA Space · Richmond, BC</div>
+          <ul class="exp-desc">
+            <li>Ship detection &amp; classification in satellite imagery — ongoing project lead</li>
+            <li>Deepfake forgery detection Phases 1a &amp; 1b — project lead (1.5 years)</li>
+            <li>Cross-view geolocalization via image matching (1.5 years)</li>
+            <li>Ship re-identification via contrastive image matching (1 year)</li>
+          </ul>
+          <div class="exp-chips">
+            <span class="exp-chip">PyTorch</span>
+            <span class="exp-chip">TensorFlow</span>
+            <span class="exp-chip">AWS</span>
+            <span class="exp-chip">Kubernetes</span>
+            <span class="exp-chip">Transformers</span>
+            <span class="exp-chip">Contrastive Learning</span>
+            <span class="exp-chip">Object Detection</span>
+            <span class="exp-chip">GANs</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date-col">
+          <span class="exp-date-range">2017</span>
+          <span class="exp-duration">6 months</span>
+        </div>
+        <div class="exp-content-col">
+          <div class="exp-role-title">Postdoctoral Research Fellow</div>
+          <div class="exp-company">Mayo Clinic · Scottsdale, AZ</div>
+          <ul class="exp-desc">
+            <li>Developed VR-based intervention integrating galvanic vestibular stimulation for motion sickness reduction</li>
+            <li>Implemented in Oculus Rift CV1 &amp; Unity</li>
+          </ul>
+          <div class="exp-chips"><span class="exp-chip">Unity</span><span class="exp-chip">VR / Oculus Rift</span><span class="exp-chip">Vestibular Neuroscience</span></div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date-col">
+          <span class="exp-date-range">2008–16</span>
+        </div>
+        <div class="exp-content-col">
+          <div class="exp-role-title">PhD Researcher</div>
+          <div class="exp-company">McGill University · Chacron &amp; Cullen Labs (Physics / Physiology)</div>
+          <ul class="exp-desc">
+            <li>Thesis: <em>"Nonlinear Information Processing in Early Vestibular Pathways"</em></li>
+            <li>Built and analyzed biophysical neuron models; applied information theory to characterize neural coding efficiency</li>
+            <li>Developed signal processing and statistical analysis pipelines for in vivo electrophysiology data</li>
+          </ul>
+          <div class="exp-chips"><span class="exp-chip">MATLAB</span><span class="exp-chip">Neuron Modeling</span><span class="exp-chip">Information Theory</span><span class="exp-chip">Signal Processing</span><span class="exp-chip">PCA</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PUBLICATIONS -->
+    <div class="m-section">
+      <div class="m-section-title">Publications</div>
+
+      <div class="pub-item">
+        <div class="pub-title-text"><strong>Schneider AD</strong> — Model vestibular nuclei neurons can exhibit a boosting nonlinearity due to an adaptation current regulated by spike-triggered calcium and calcium-activated potassium currents.</div>
+        <div class="pub-journal">PLoS ONE · 2016</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title-text"><strong>Schneider AD*</strong>, Jamali M*, Carriot J, Chacron MJ, Cullen KE — The increased sensitivity of irregular peripheral canal and otolith vestibular afferents optimizes their encoding of natural stimuli.</div>
+        <div class="pub-journal">Journal of Neuroscience · 2015</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title-text">Massot C, <strong>Schneider AD</strong>, Chacron MJ, Cullen KE — The vestibular system implements a linear–nonlinear transformation in order to encode self-motion.</div>
+        <div class="pub-journal">PLoS Biology · 2012</div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-title-text"><strong>Schneider AD</strong>, Cullen KE, Chacron MJ — In vivo conditions induce faithful encoding of stimuli by reducing nonlinear synchronization in vestibular sensory neurons.</div>
+        <div class="pub-journal">PLoS Computational Biology · 2011</div>
+      </div>
+    </div>
+
+  </main>
+</div>
 </body>
 </html>
