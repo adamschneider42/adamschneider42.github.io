@@ -11,11 +11,11 @@ This site is my own reference for sorting the two apart: what physics and neuros
 
 ## Two ways to browse
 
-**[By physics concept](/physics/)** — the actual science, building from classical mechanics up through quantum field theory. Read in order if you want the full picture.
+**[By physics concept](physics/)** — the actual science, building from classical mechanics up through quantum field theory. Read in order if you want the full picture.
 
-**[By claim](/claims/)** — start here if you came in wondering about something specific (manifestation, quantum consciousness, water memory, near-death experiences...). Each entry points back to the physics or neuroscience that actually addresses it.
+**[By claim](claims/)** — start here if you came in wondering about something specific (manifestation, quantum consciousness, water memory, near-death experiences...). Each entry points back to the physics or neuroscience that actually addresses it.
 
-Also: **[Neuroscience & the frontier](/neuroscience/)** — consciousness research, altered states, and what's actually new and interesting in the literature right now.
+Also: **[Neuroscience & the frontier](neuroscience/)** — consciousness research, altered states, and what's actually new and interesting in the literature right now.
 
 ---
 
